@@ -1,4 +1,4 @@
-# ADSExcercise
+# ADSExercise
 
 
 
@@ -6,9 +6,9 @@
 ## Project structure
 
 ```
-ads_excercise
+ads_exercise
 │   README.md
-├── ads_excercise  # The core library folder. All project-wide helper and algorithms go here
+├── ads_exercise  # The core library folder. All project-wide helper and algorithms go here
 |
 ├── experiments  # The main folder for all experiements. Each experiment has its own subfolder
 |   ├── experiment_1  # A single experiment (can be created with `poe experiment experiment_name`)
@@ -19,7 +19,7 @@ ads_excercise
 |   ├── experiment_2
 |       ├── ...
 |
-├── tests  # Unit tests for the `ads_excercise` library
+├── tests  # Unit tests for the `ads_exercise` library
 |
 ├── data  # The main data folder. This is ignored in the `.gitignore` by default.
 |
@@ -66,7 +66,7 @@ This can be done by running:
 poe conf_jupyter
 ```
 
-Afterwards a new kernel called `ads_excercise` should be available in the jupyter lab / jupyter notebook interface.
+Afterwards a new kernel called `ads_exercise` should be available in the jupyter lab / jupyter notebook interface.
 Use that kernel for all notebooks related to this project.
 
 
@@ -76,11 +76,11 @@ To make best use of the folder structure, the parent folder of each notebook sho
 This can be done by adding the following lines to your first notebook cell:
 
 ```python
-# Optional: Auto reloads the helper and the main ads_excercise module
+# Optional: Auto reloads the helper and the main ads_exercise module
 %load_ext autoreload
 %autoreload 2
 
-from ads_excercise import conf_rel_path
+from ads_exercise import conf_rel_path
 conf_rel_path()
 ```
 
