@@ -1,4 +1,3 @@
-## add to .venv/etc/jupyter
 
 c = get_config()
 
