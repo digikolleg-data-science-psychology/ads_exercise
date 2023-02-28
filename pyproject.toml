@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "ads_excercise"
+name = "ads_exercise"
 version = "0.1.0"
 description = ""
 authors = ["Luca Abel <luca.abel@fau.de>"]
