@@ -7,11 +7,13 @@ license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.7.1"
+python = ">=3.8,<3.11"
 abc-classroom = "^0.1.9"
+nbgrader = "^0.8.1"
 
 [tool.poetry.dev-dependencies]
 ipympl = "^0.9"
+poethepoet = "^0.10.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -56,6 +58,6 @@ check = { sequence = ["_check_black", "_check_isort", "lint"], help = "Check all
 test = { cmd = "pytest --cov=ads_excercise --cov-report=term-missing --cov-report=xml", help = "Run Pytest with coverage." }
 version = { script = "_tasks:task_update_version()" }
 conf_jupyter = { cmd = "python -m ipykernel install --user --name ads_excercise", help = "Add a new jupyter kernel for the project." }
-
+register_ipykernel = { cmd = "python -m ipykernel install --user --name ads_excercise --display-name ads_excercise", help = "Add a new jupyter kernel for the project."}
 remove_jupyter = { cmd = "jupyter kernelspec uninstall ads_excercise", help = "Remove the project specific jupyter kernel."}
 experiment = { script = "_tasks:task_new_experiment()", help = "Create the boilerplate for a new experiment in the experiment subfolder."}

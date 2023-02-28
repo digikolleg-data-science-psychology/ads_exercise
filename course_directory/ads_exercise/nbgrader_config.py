@@ -1,3 +1,5 @@
+## add to .venv/etc/jupyter
+
 c = get_config()
 
 ###############################################################################
@@ -6,7 +8,7 @@ c = get_config()
 
 # You only need this if you are running nbgrader on a shared
 # server set up.
-c.CourseDirectory.course_id = "ads_excercise"
+c.CourseDirectory.course_id = "ads_exercise"
 
 c.IncludeHeaderFooter.header = "source/header.ipynb"
 
@@ -15,8 +17,6 @@ c.IncludeHeaderFooter.header = "source/header.ipynb"
 ###############################################################################
 
 # Configuration file for nbgrader-generate-config.
-
-c = get_config()  #noqa
 
 #------------------------------------------------------------------------------
 # Application(SingletonConfigurable) configuration
@@ -35,53 +35,6 @@ c = get_config()  #noqa
 #  Choices: any of [0, 10, 20, 30, 40, 50, 'DEBUG', 'INFO', 'WARN', 'ERROR', 'CRITICAL']
 #  Default: 30
 # c.Application.log_level = 30
-
-## Configure additional log handlers.
-#  
-#  The default stderr logs handler is configured by the log_level, log_datefmt
-#  and log_format settings.
-#  
-#  This configuration can be used to configure additional handlers (e.g. to
-#  output the log to a file) or for finer control over the default handlers.
-#  
-#  If provided this should be a logging configuration dictionary, for more
-#  information see:
-#  https://docs.python.org/3/library/logging.config.html#logging-config-
-#  dictschema
-#  
-#  This dictionary is merged with the base logging configuration which defines
-#  the following:
-#  
-#  * A logging formatter intended for interactive use called
-#    ``console``.
-#  * A logging handler that writes to stderr called
-#    ``console`` which uses the formatter ``console``.
-#  * A logger with the name of this application set to ``DEBUG``
-#    level.
-#  
-#  This example adds a new handler that writes to a file:
-#  
-#  .. code-block:: python
-#  
-#     c.Application.logging_config = {
-#         'handlers': {
-#             'file': {
-#                 'class': 'logging.FileHandler',
-#                 'level': 'DEBUG',
-#                 'filename': '<path/to/file>',
-#             }
-#         },
-#         'loggers': {
-#             '<application-name>': {
-#                 'level': 'DEBUG',
-#                 # NOTE: if you don't list the default "console"
-#                 # handler here then it will be disabled
-#                 'handlers': ['console', 'file'],
-#             },
-#         }
-#     }
-#  Default: {}
-# c.Application.logging_config = {}
 
 ## Instead of starting the Application, dump configuration to stdout
 #  Default: False
@@ -123,10 +76,6 @@ c = get_config()  #noqa
 ## Set the log level by value or name.
 #  See also: Application.log_level
 # c.JupyterApp.log_level = 30
-
-## 
-#  See also: Application.logging_config
-# c.JupyterApp.logging_config = {}
 
 ## Instead of starting the Application, dump configuration to stdout
 #  See also: Application.show_config
@@ -174,10 +123,6 @@ c = get_config()  #noqa
 #  Default: ''
 # c.NbGrader.logfile = ''
 
-## 
-#  See also: Application.logging_config
-# c.NbGrader.logging_config = {}
-
 ## Instead of starting the Application, dump configuration to stdout
 #  See also: Application.show_config
 # c.NbGrader.show_config = False
@@ -224,10 +169,6 @@ c = get_config()  #noqa
 ## 
 #  See also: NbGrader.logfile
 # c.GenerateConfigApp.logfile = ''
-
-## 
-#  See also: Application.logging_config
-# c.GenerateConfigApp.logging_config = {}
 
 ## Instead of starting the Application, dump configuration to stdout
 #  See also: Application.show_config
@@ -302,8 +243,8 @@ c = get_config()  #noqa
 #  grading process. This MUST contain named keys for 'nbgrader_step',
 #  'student_id', and 'assignment_id'. It SHOULD NOT contain a key for
 #  'notebook_id', as this will be automatically joined with the rest of the path.
-#  Default: '{nbgrader_step}/{student_id}/{assignment_id}'
-# c.CourseDirectory.directory_structure = '{nbgrader_step}/{student_id}/{assignment_id}'
+#  Default: '{nbgrader_step}\\{student_id}\\{assignment_id}'
+# c.CourseDirectory.directory_structure = '{nbgrader_step}\\{student_id}\\{assignment_id}'
 
 ## The name of the directory that contains assignment feedback after grading has
 #  been completed. This corresponds to the `nbgrader_step` variable in the
@@ -752,8 +693,8 @@ c = get_config()  #noqa
 # c.NotebookClient.ipython_hist_file = ':memory:'
 
 ## The kernel manager class to use.
-#  Default: 'jupyter_client.manager.KernelManager'
-# c.NotebookClient.kernel_manager_class = 'jupyter_client.manager.KernelManager'
+#  Default: 'builtins.object'
+# c.NotebookClient.kernel_manager_class = 'builtins.object'
 
 ## Name of kernel to use to execute the cells. If not set, use the kernel_spec
 #  embedded in the notebook.
@@ -913,7 +854,7 @@ c = get_config()  #noqa
 
 ## The kernel manager class to use.
 #  See also: NotebookClient.kernel_manager_class
-# c.ExecutePreprocessor.kernel_manager_class = 'jupyter_client.manager.KernelManager'
+# c.ExecutePreprocessor.kernel_manager_class = 'builtins.object'
 
 ## 
 #  See also: NotebookClient.kernel_name
@@ -1024,7 +965,7 @@ c = get_config()  #noqa
 
 ## The kernel manager class to use.
 #  See also: NotebookClient.kernel_manager_class
-# c.Execute.kernel_manager_class = 'jupyter_client.manager.KernelManager'
+# c.Execute.kernel_manager_class = 'builtins.object'
 
 ## 
 #  See also: NotebookClient.kernel_name
@@ -1211,7 +1152,7 @@ c = get_config()  #noqa
 # Exchange(LoggingConfigurable) configuration
 #------------------------------------------------------------------------------
 ## Local path for storing student assignments.  Defaults to '.' which is normally
-#  Jupyter's notebook_dir.
+#  Jupyter's root_dir.
 #  Default: '.'
 # c.Exchange.assignment_dir = '.'
 
