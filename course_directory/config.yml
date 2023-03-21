@@ -42,3 +42,5 @@ files_to_ignore:
 files_to_grade:
 - .py
 - .ipynb
+assignments:
+- ads_assignment_1
