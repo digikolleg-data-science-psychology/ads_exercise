@@ -237,4 +237,9 @@ $RECYCLE.BIN/
 # The data folder. Remove that line, if you want to store your data in git as well.
 data
 
-
+# abc-classroom, nbgrader
+autograded
+feedback
+submitted
+template_repos
+cloned_repos
