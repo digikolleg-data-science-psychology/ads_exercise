@@ -23,6 +23,10 @@ poe register_ipykernel
 Afterwards a new kernel called `ads_exercise` should be available in the jupyter lab / jupyter notebook interface.
 Use that kernel for all notebooks related to this project.
 
+## Directories
+<course_dir>: ads_exercise/course_directory<br />
+<nbgrader_dir>: ads_exercise/course_directory/ads_exercise
+
 ## abc-classroom
 |**abc-init**||
 |:-|:-|
@@ -49,7 +53,7 @@ Use that kernel for all notebooks related to this project.
 |description|updates an existing template repository based on local changes to course materials|
 |*arguments*||
 |<assignment_name>|name of assignment in nbgrader directory|
-|--mode <br /> &emsp; delete <br /> &emsp; merge|If template repo already exists <br /> delete: delete contents before proceeding <br /> merge: keep existing directory <br /> overwrite existing files
+|--mode <br /> &emsp; delete <br /> &emsp; merge|If template repo already exists <br /> delete: delete contents before proceeding <br /> merge: keep existing directory, overwrite existing files
 
 |**abc-clone**||
 |:-|:-|
@@ -131,6 +135,39 @@ With the following comments it is possible to manage students and assignments in
 |remove|remove an assignment from the nbgrader database|
 |list|list assignment in the nbgrader database|
 
+## Workflow (work in progress)
+|**Material development**||
+|:-|:-|
+|Develop assignment materials|<ul><li>in<nbgrader_dir>/source/<assignment_name></li><li><assignment_name> in lowercase and no special characters</li><li>notebooks in jupyter not colab</li><li>prepare the assignment using the nbgrader tools</li></ul>| 
+|Create student version|<ul><li>in <nbgrader_dir>/release/<assignment_name></li><li>remove the kernel in release version (students otherwise will get a warning when opening the notebook in colab)</li><li>add any other required material to the directory</li></ul>|
+
+|**GitHub Classroom assignment preparation**||
+|:-|:-|
+|Create template repository|<ul><li>in <course_dir>/template_repos/<assignment_name>-template</li><li>push the repository to GitHub</li><li>change the repository settings in GitHub</li><ul><li>repository to template repository</li><li>repository visibility to private</li></ul></ul>|
+|Create GitHub Classroom assignment|<ul><li>set deadline</li><li>link the respective template repository</li><li>assignment name in GitHub classroom should match the one used in nbgrader_dir</li></ul>|
+|Adjust notebook in Colab|<ul><li>add GitHub Classroom assignment link</li><li>make the changes indicated with TODO</li><li>push back to repo, check the colab link checkbox</li></ul>|
+|Add html to pdf converter|<ul><li>clone template repository locally</li><li>add the .github/workflow directory (generates pdf from feedback html file on push)</li><li>change the assignment name in workflow</li></ul>|
+|Adjust README|<ul><li>remove placeholders</li></ul>|
+|Optional: Test Assignment prior release to students|<ul><li>once an assignment is graded nbgrader will not allow to release it again</li><li>workaround: delete the assignment from the database<br />nbgrader db assignment remove <assignment-name> --force</li></ul>|
+
+|**Students work phase**||
+|:-|:-|
+|work phase|<ul><li>give students assignment link</li><li>students accept assignment</li><li>complete work</li><li>submit by pushing to their github repository</li></ul>|
+
+|**Grading Feedback**||
+|:-|:-|
+|Student roster|<ul><li>check if the student roster changed compared to the last assignment</li><li>Clone student repositories</li><li>to <course_dir>/cloned_repos/</li><li>copy files to <nbgrader_dir>/submitted</li></ul>|  
+|Grading|<ul><li>run autograde</li><li>add manual grading</li><ul><li>launch jupyter lab from nbgrader_dir</li><li>open students’ notebooks from autograded folder, select manual grading</li></ul></ul>|
+|Feedback|<ul><li>Generate feedback html files and push them to students’ repositories</li></ul>|
+
+|**Export grades**||
+|:-|:-|
+|Export grades|from gradebook.db|
+  
+  
+
+<li></li>
+</li><li>
 
 
 |****||
