@@ -44,3 +44,4 @@ files_to_grade:
 - .ipynb
 assignments:
 - ads_assignment_1
+- ads_assignment_2
