@@ -2,7 +2,7 @@
 name = "ads_exercise"
 version = "0.1.0"
 description = ""
-authors = ["Luca Abel <luca.abel@fau.de>"]
+authors = ["Luca Abel <luca.abel@fau.de>", "Marie Oesten <marie.oesten@fau.de>"]
 license = "MIT"
 readme = "README.md"
 
@@ -10,6 +10,8 @@ readme = "README.md"
 python = ">=3.8,<3.11"
 abc-classroom = "^0.1.9"
 nbgrader = "^0.8.1"
+pandas = "*"
+pathlib = "*"
 
 [tool.poetry.dev-dependencies]
 ipympl = "^0.9"
