@@ -163,14 +163,3 @@ With the following comments it is possible to manage students and assignments in
 |**Export grades**||
 |:-|:-|
 |Export grades|from gradebook.db|
-  
-  
-
-<li></li>
-</li><li>
-
-
-|****||
-|:-|:-|
-|description||
-|*arguments*||
