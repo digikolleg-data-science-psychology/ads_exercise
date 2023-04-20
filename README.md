@@ -31,16 +31,17 @@ Use that kernel for all notebooks related to this project.
 |**Material development**||
 |:-|:-|
 |Develop assignment materials|<ul><li>in<nbgrader_dir>/source/<assignment_name></li><li><assignment_name> in lowercase and no special characters</li><li>notebooks in jupyter not colab</li><li>prepare the assignment using the nbgrader tools</li></ul>| 
-|Create student version|<ul><li>in <nbgrader_dir>/release/<assignment_name></li><li>remove the kernel in release version (students otherwise will get a warning when opening the notebook in colab)</li><li>add any other required material to the directory</li></ul>|
+|Create student version|<ul><li>in <nbgrader_dir>/release/<assignment_name></li><li>add any other required material to the directory</li></ul>|
 
 |**GitHub Classroom assignment preparation**||
 |:-|:-|
 |Create template repository|<ul><li>in <course_dir>/template_repos/<assignment_name>-template</li><li>push the repository to GitHub</li><li>change the repository settings in GitHub</li><ul><li>repository to template repository</li><li>repository visibility to private</li></ul></ul>|
-|Create GitHub Classroom assignment|<ul><li>set deadline</li><li>link the respective template repository</li><li>assignment name in GitHub classroom should match the one used in nbgrader_dir</li></ul>|
-|Adjust notebook in Colab|<ul><li>add GitHub Classroom assignment link</li><li>make the changes indicated with TODO</li><li>push back to repo, check the colab link checkbox</li></ul>|
+|Create GitHub Classroom assignment|<ul><li>set deadline</li><li>check the box "This is a cutoff date"</li><li>link the respective template repository</li><li>assignment name in GitHub classroom should match the one used in nbgrader_dir</li></ul>|
+|Add assignment link to StudOn|Make the assignment link public to students enrolled in the course|
+|Adjust notebook in Colab|<ul><li>make any changes indicated with TODO</li><li>in ``Runtime > Change runtime type`` change Runtime type from ads_exercise to Python 3 </li><li>push back to repo, check the colab link checkbox</li></ul>|
 |Add html to pdf converter|<ul><li>clone template repository locally</li><li>add the .github/workflow directory (generates pdf from feedback html file on push)</li><li>change the assignment name in workflow</li></ul>|
-|Adjust README|<ul><li>remove placeholders</li></ul>|
-|Optional: Test Assignment prior release to students|<ul><li>once an assignment is graded nbgrader will not allow to release it again</li><li>workaround: delete the assignment from the database<br />nbgrader db assignment remove <assignment-name> --force</li></ul>|
+|Adjust README|<ul><li>change title to "Applied Data Science in Medicine & Psychology - Assignment \<XX\></li><li>remove placeholders</li></ul>|
+|Optional: Test Assignment prior release to students|After autograde testing: <ul><li>once an assignment is graded nbgrader will not allow to release it again</li><li>workaround: delete the assignment from the database<br />nbgrader db assignment remove <assignment-name> --force</li><li>generate the assignment to add the assignment again to the database</li></ul>|
 
 |**Students work phase**||
 |:-|:-|
