@@ -4,7 +4,7 @@ organization: digikolleg-data-science-psychology
 
 # Absolute path to the course directory. If you ran abc-quickstart, this was
 # set up for you
-course_directory: C:\Users\marie\repositories_ADS\ads_exercise\course_directory
+course_directory: /Users/abelluc/Code/ads_exercise/course_directory
 
 # Path to the course roster (list of students downloaded from
 # github classroom). If the roster is in the course_directory, simply enter
