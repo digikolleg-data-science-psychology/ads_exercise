@@ -35,7 +35,7 @@ Use that kernel for all notebooks related to this project.
 
 |**GitHub Classroom assignment preparation**||
 |:-|:-|
-|Create template repository|<ul><li>in <course_dir>/template_repos/<assignment_name>-template</li><li>push the repository to GitHub</li><li>change the repository settings in GitHub</li><ul><li>repository to template repository</li><li>repository visibility to private</li></ul></ul>|
+|Create template repository|<ul><li>in <course_dir>/template_repos/<assignment_name>-template</li><li>push the repository to GitHub</li><li>change the repository settings in GitHub</li><ul><li>repository to template repository</li><li>check if the repository visibility is set to public</li></ul></ul>|
 |Create GitHub Classroom assignment|<ul><li>set deadline</li><li>check the box "This is a cutoff date"</li><li>link the respective template repository</li><li>assignment name in GitHub classroom should match the one used in nbgrader_dir</li></ul>|
 |Add assignment link to StudOn|Make the assignment link public to students enrolled in the course|
 |Adjust notebook in Colab|<ul><li>make any changes indicated with TODO</li><li>in ``Runtime > Change runtime type`` change Runtime type from ads_exercise to Python 3 </li><li>push back to repo, check the colab link checkbox</li></ul>|
