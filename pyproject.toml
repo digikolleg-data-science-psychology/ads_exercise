@@ -12,6 +12,7 @@ abc-classroom = "^0.1.9"
 nbgrader = "0.8.1"
 pandas = "*"
 pathlib = "*"
+pooch = "*"
 
 [tool.poetry.dev-dependencies]
 ipympl = "^0.9"
