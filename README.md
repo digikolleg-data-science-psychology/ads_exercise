@@ -101,6 +101,10 @@ Use that kernel for all notebooks related to this project.
 |--github|push feedback to students’ repos|
 |--scrub|clean out hidden tests from notebook when used|
 
+**Mass clone all subdirectories** (can be helpful, when something went wrong during pushing feedback)
+
+`find . -name ".git" -type d | sed 's/\/.git//' |  xargs -P10 -I{} git -C {} pull`
+
 ## nbgrader
 |**nbgrader quickstart**||
 |:-|:-|
