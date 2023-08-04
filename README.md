@@ -58,12 +58,11 @@ Use that kernel for all notebooks related to this project.
 |Export grades|[nbgrader export](#nbgrader-export)<ul><li>from gradebook.db</ul></li>|
 
 ## abc-classroom
-### abc-init
+Use commands from <course_dir>.
 |**abc-init**||
 |:-|:-|
 |description|creates a GitHub personal access token, locally stored in file .abc-classroom.tokens.html|
 
-### abc-quickstart
 |**abc-quickstart**||
 |:-|:-|
 |description|sets up a new course|
@@ -80,16 +79,14 @@ Use that kernel for all notebooks related to this project.
 |--mode <br /> &emsp; delete <br /> &emsp; merge <br /> &emsp; fail|If template repo already exists <br /> delete: delete contents before proceeding <br /> merge: keep existing directory, overwrite existing files <br /> fail: add new files|
 |--custom message|use a custom commit message for git (opens the default git text editor for entry)|
 
-### abc-update-template
-|**abc-update-template**||
+|<a name=abc-update-template>**abc-update-template**</a>||
 |:-|:-|
 |description|updates an existing template repository based on local changes to course materials|
 |*arguments*||
 |<assignment_name>|name of assignment in nbgrader directory|
 |--mode <br /> &emsp; delete <br /> &emsp; merge|If template repo already exists <br /> delete: delete contents before proceeding <br /> merge: keep existing directory, overwrite existing files
 
-### abc-clone
-|**abc-clone**||
+|<a name=abc-clone>**abc-clone**</a>||
 |:-|:-|
 |description|clones each of the student repositories and copies submitted assignments into your course materials|
 |*arguments*||
@@ -97,8 +94,7 @@ Use that kernel for all notebooks related to this project.
 |--skip-existing|do not update existing repos|
 |--no-submitted|skip moving files from cloned repo to submitted directory|
 
-### abc-feedback
-|**abc-feedback**||
+|<a name=abc-feedback>**abc-feedback**</a>||
 |:-|:-|
 |description|copies feedback report from your course materials directory into local student repositories and then pushes to GitHub|
 |*arguments*||
@@ -111,16 +107,15 @@ Use that kernel for all notebooks related to this project.
 `find . -name ".git" -type d | sed 's/\/.git//' |  xargs -P10 -I{} git -C {} pull`
 
 ## nbgrader
-### nbgrader quickstart
+Use commands from <nbgrader_dir>.
 |**nbgrader quickstart**||
 |:-|:-|
 |description|create nbgrader directory for autograding|
 |*arguments*||
 |<nbgrader_name>|name of nbgrader directory|
 |-f --force|overwrite existing files if they already exist|
-
-### nbgrader generate_assignment
-|**nbgrader generate_assignment**||
+ 
+|<a name=nbgrader-generate_assignment>**nbgrader generate_assignment**</a>||
 |:-|:-|
 |description|generate student version of the assignment in the release directory|
 |*arguments*||
@@ -129,31 +124,27 @@ Use that kernel for all notebooks related to this project.
 |--no-metadata|do not validate or modify cell metadata|
 |-f --force|overwrite an assignment if it already exists|
 
-### nbgrader autograde
-|**nbgrader autograde**||
+|<a name=nbgrader-autograde>**nbgrader autograde**</a>||
 |:-|:-|
 |description|autograde assignment|
 |*arguments*||
 |<assignment_name>|name of assignment in nbgrader directory|
 |-f --force|overwrite if autograded assignment already exists|
 
-### nbgrader generate_feedback
-|**nbgrader generate_feedback**||
+|<a name=nbgrader-generate_feedback>**nbgrader generate_feedback**</a>||
 |:-|:-|
 |description|generate feedback to students|
 |*arguments*||
 |<assignment_name>|name of assignment in nbgrader directory|
 
-### nbgrader validate
-|**nbgrader validate**||
+|<a name=nbgrader-validate>**nbgrader validate**</a>||
 |:-|:-|
 |description|validate that the solution version of the notebook passes all the tests|
 |*arguments*||
 |<file_name>|name of the file to be validated, e.g., “problem_1.ipynb” <br /> <nbgrader_dir>/source/<assignment_name>/*.ipynb|
 |--invert|validate that the students’ version doesn’t pass any tests <br /> <file_name>: <nbgrader_dir>/release/<assignment_name>/*.ipynb|
 
-### nbgrader export
-|**nbgrader export**||
+|<a name=nbgrader-export>**nbgrader export**</a>||
 |:-|:-|
 |description|export gradebook as csv file|
 |*arguments*||
@@ -163,8 +154,7 @@ Use that kernel for all notebooks related to this project.
 ## nbgrader database
 With the following comments it is possible to manage students and assignments in the database. Usually, this is done inherently by nbgrader and abc-classroom commands. More information about the commands can be found [here](https://nbgrader.readthedocs.io/en/latest/user_guide/managing_the_database.html).
 
-### nbgrader db student
-|**nbgrader db student**||
+|<a name=nbgrader-db-student>**nbgrader db student**</a>||
 |:-|:-|
 |description|managing student in database|
 |*arguments*||
@@ -173,8 +163,7 @@ With the following comments it is possible to manage students and assignments in
 |remove|remove student from the nbgrader database|
 |list|list students in nbgrader database|
 
-### nbgrader db assignment
-|**nbgrader db assignment**||
+|<a name=nbgrader-db-assignment>**nbgrader db assignment**</a>||
 |:-|:-|
 |description|managing assignments in database|
 |*arguments*||
