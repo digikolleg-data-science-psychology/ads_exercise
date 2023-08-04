@@ -30,18 +30,18 @@ Use that kernel for all notebooks related to this project.
 ## Workflow (work in progress)
 |**Material development**||
 |:-|:-|
-|Develop assignment materials [Internal Link](#abc-classroom)|<ul><li>in<nbgrader_dir>/source/<assignment_name></li><li><assignment_name> in lowercase and no special characters</li><li>notebooks in jupyter not colab</li><li>prepare the assignment using the nbgrader tools</li></ul>| 
-|Create student version|<ul><li>in <nbgrader_dir>/release/<assignment_name></li><li>add any other required material to the directory</li></ul>|
+|Develop assignment materials|<ul><li>in<nbgrader_dir>/source/<assignment_name></li><li><assignment_name> in lowercase and no special characters</li><li>notebooks in jupyter not colab</li><li>prepare the assignment using the nbgrader tools</li></ul>| 
+|Create student version|[nbgrader generate_assignment](#nbgrader-generate_assignment)<ul><li>in <nbgrader_dir>/release/<assignment_name></li><li>add any other required material to the directory</li></ul>|
 
 |**GitHub Classroom assignment preparation**||
 |:-|:-|
-|Create template repository|<ul><li>in <course_dir>/template_repos/<assignment_name>-template</li><li>push the repository to GitHub</li><li>change the repository settings in GitHub</li><ul><li>repository to template repository</li><li>check if the repository visibility is set to public</li></ul></ul>|
+|Create template repository|[abc-new-template](#abc-new-template)<ul><li>in <course_dir>/template_repos/<assignment_name>-template</li><li>push the repository to GitHub</li></ul>Change GitHub repository settings<ul><li>repository to template repository</li><li>check if the repository visibility is set to public</li></ul>|
 |Create GitHub Classroom assignment|<ul><li>set deadline</li><li>check the box "This is a cutoff date"</li><li>link the respective template repository</li><li>assignment name in GitHub classroom should match the one used in nbgrader_dir</li></ul>|
 |Add assignment link to StudOn|Make the assignment link public to students enrolled in the course|
 |Adjust notebook in Colab|<ul><li>make any changes indicated with TODO</li><li>in ``Runtime > Change runtime type`` change Runtime type from ads_exercise to Python 3 </li><li>push back to repo, check the colab link checkbox</li></ul>|
 |Add html to pdf converter|<ul><li>clone template repository locally</li><li>add the .github/workflow directory (generates pdf from feedback html file on push)</li><li>change the assignment name in workflow</li></ul>|
 |Adjust README|<ul><li>change title to "Applied Data Science in Medicine & Psychology - Assignment \<XX\></li><li>remove placeholders</li></ul>|
-|Optional: Test Assignment prior release to students|After autograde testing: <ul><li>once an assignment is graded nbgrader will not allow to release it again</li><li>workaround: delete the assignment from the database<br />nbgrader db assignment remove <assignment-name> --force</li><li>generate the assignment to add the assignment again to the database</li></ul>|
+|Optional: Test Assignment prior release to students|After autograde testing: <ul><li>once an assignment is graded nbgrader will not allow to release it again</li><li>workaround: delete the assignment from the database<br />nbgrader db assignment remove <assignment-name> --force ([nbgrader db assignment](#nbgrader-db-assignment))</li><li>generate the assignment to add the assignment again to the database ([nbgrader generate_assignment](#nbgrader-generate_assignment))</li></ul>|
 
 |**Students work phase**||
 |:-|:-|
@@ -58,10 +58,12 @@ Use that kernel for all notebooks related to this project.
 |Export grades|from gradebook.db|
 
 ## abc-classroom
+### abc-init
 |**abc-init**||
 |:-|:-|
 |description|creates a GitHub personal access token, locally stored in file .abc-classroom.tokens.html|
 
+### abc-quickstart
 |**abc-quickstart**||
 |:-|:-|
 |description|sets up a new course|
@@ -69,6 +71,7 @@ Use that kernel for all notebooks related to this project.
 |<course_name>|name of the course directory, e.g., course_directory|
 |-f|overwrite existing folder structure|
 
+### abc-new-template
 |**abc-new-template**||
 |:-|:-|
 |description|creates a git repository from a directory of course materials and pushes the repo to the GitHub organization to be used as assignment template|
@@ -78,6 +81,7 @@ Use that kernel for all notebooks related to this project.
 |--mode <br /> &emsp; delete <br /> &emsp; merge <br /> &emsp; fail|If template repo already exists <br /> delete: delete contents before proceeding <br /> merge: keep existing directory, overwrite existing files <br /> fail: add new files|
 |--custom message|use a custom commit message for git (opens the default git text editor for entry)|
 
+### abc-update-template
 |**abc-update-template**||
 |:-|:-|
 |description|updates an existing template repository based on local changes to course materials|
@@ -85,6 +89,7 @@ Use that kernel for all notebooks related to this project.
 |<assignment_name>|name of assignment in nbgrader directory|
 |--mode <br /> &emsp; delete <br /> &emsp; merge|If template repo already exists <br /> delete: delete contents before proceeding <br /> merge: keep existing directory, overwrite existing files
 
+### abc-clone
 |**abc-clone**||
 |:-|:-|
 |description|clones each of the student repositories and copies submitted assignments into your course materials|
@@ -93,6 +98,7 @@ Use that kernel for all notebooks related to this project.
 |--skip-existing|do not update existing repos|
 |--no-submitted|skip moving files from cloned repo to submitted directory|
 
+### abc-feedback
 |**abc-feedback**||
 |:-|:-|
 |description|copies feedback report from your course materials directory into local student repositories and then pushes to GitHub|
@@ -106,6 +112,7 @@ Use that kernel for all notebooks related to this project.
 `find . -name ".git" -type d | sed 's/\/.git//' |  xargs -P10 -I{} git -C {} pull`
 
 ## nbgrader
+### nbgrader quickstart
 |**nbgrader quickstart**||
 |:-|:-|
 |description|create nbgrader directory for autograding|
@@ -113,6 +120,7 @@ Use that kernel for all notebooks related to this project.
 |<nbgrader_name>|name of nbgrader directory|
 |-f --force|overwrite existing files if they already exist|
 
+### nbgrader generate_assignment
 |**nbgrader generate_assignment**||
 |:-|:-|
 |description|generate student version of the assignment in the release directory|
@@ -122,6 +130,7 @@ Use that kernel for all notebooks related to this project.
 |--no-metadata|do not validate or modify cell metadata|
 |-f --force|overwrite an assignment if it already exists|
 
+### nbgrader autograde
 |**nbgrader autograde**||
 |:-|:-|
 |description|autograde assignment|
@@ -129,12 +138,14 @@ Use that kernel for all notebooks related to this project.
 |<assignment_name>|name of assignment in nbgrader directory|
 |-f --force|overwrite if autograded assignment already exists|
 
+### nbgrader generate_feedback
 |**nbgrader generate_feedback**||
 |:-|:-|
 |description|generate feedback to students|
 |*arguments*||
 |<assignment_name>|name of assignment in nbgrader directory|
 
+### nbgrader validate
 |**nbgrader validate**||
 |:-|:-|
 |description|validate that the solution version of the notebook passes all the tests|
@@ -142,6 +153,7 @@ Use that kernel for all notebooks related to this project.
 |<file_name>|name of the file to be validated, e.g., “problem_1.ipynb” <br /> <nbgrader_dir>/source/<assignment_name>/*.ipynb|
 |--invert|validate that the students’ version doesn’t pass any tests <br /> <file_name>: <nbgrader_dir>/release/<assignment_name>/*.ipynb|
 
+### nbgrader export
 |**nbgrader export**||
 |:-|:-|
 |description|export gradebook as csv file|
@@ -151,6 +163,8 @@ Use that kernel for all notebooks related to this project.
 
 ## nbgrader database
 With the following comments it is possible to manage students and assignments in the database. Usually, this is done inherently by nbgrader and abc-classroom commands. More information about the commands can be found [here](https://nbgrader.readthedocs.io/en/latest/user_guide/managing_the_database.html).
+
+### nbgrader db student
 |**nbgrader db student**||
 |:-|:-|
 |description|managing student in database|
@@ -160,6 +174,7 @@ With the following comments it is possible to manage students and assignments in
 |remove|remove student from the nbgrader database|
 |list|list students in nbgrader database|
 
+### nbgrader db assignment
 |**nbgrader db assignment**||
 |:-|:-|
 |description|managing assignments in database|
