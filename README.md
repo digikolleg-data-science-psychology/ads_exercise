@@ -30,7 +30,7 @@ Use that kernel for all notebooks related to this project.
 ## Workflow (work in progress)
 |**Material development**||
 |:-|:-|
-|Develop assignment materials [Internal Link](/abc-classroom)|<ul><li>in<nbgrader_dir>/source/<assignment_name></li><li><assignment_name> in lowercase and no special characters</li><li>notebooks in jupyter not colab</li><li>prepare the assignment using the nbgrader tools</li></ul>| 
+|Develop assignment materials [Internal Link](#abc-classroom)|<ul><li>in<nbgrader_dir>/source/<assignment_name></li><li><assignment_name> in lowercase and no special characters</li><li>notebooks in jupyter not colab</li><li>prepare the assignment using the nbgrader tools</li></ul>| 
 |Create student version|<ul><li>in <nbgrader_dir>/release/<assignment_name></li><li>add any other required material to the directory</li></ul>|
 
 |**GitHub Classroom assignment preparation**||
