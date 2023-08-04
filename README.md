@@ -30,32 +30,32 @@ Use that kernel for all notebooks related to this project.
 ## Workflow (work in progress)
 |**Material development**||
 |:-|:-|
-|Develop assignment materials|<ul><li>in<nbgrader_dir>/source/<assignment_name></li><li><assignment_name> in lowercase and no special characters</li><li>notebooks in jupyter not colab</li><li>prepare the assignment using the nbgrader tools</li></ul>| 
+|Develop assignment materials|<ul><li>in <nbgrader_dir>/source/<assignment_name></li><li><assignment_name> in lowercase and no special characters</li><li>notebooks in jupyter not colab</li><li>prepare the assignment using the nbgrader tools</li></ul>| 
 |Create student version|[nbgrader generate_assignment](#nbgrader-generate_assignment)<ul><li>in <nbgrader_dir>/release/<assignment_name></li><li>add any other required material to the directory</li></ul>|
 
 |**GitHub Classroom assignment preparation**||
 |:-|:-|
 |Create template repository|[abc-new-template](#abc-new-template)<ul><li>in <course_dir>/template_repos/<assignment_name>-template</li><li>push the repository to GitHub</li></ul>Change GitHub repository settings<ul><li>repository to template repository</li><li>check if the repository visibility is set to public</li></ul>|
 |Create GitHub Classroom assignment|<ul><li>set deadline</li><li>check the box "This is a cutoff date"</li><li>link the respective template repository</li><li>assignment name in GitHub classroom should match the one used in nbgrader_dir</li></ul>|
-|Add assignment link to StudOn|Make the assignment link public to students enrolled in the course|
 |Adjust notebook in Colab|<ul><li>make any changes indicated with TODO</li><li>in ``Runtime > Change runtime type`` change Runtime type from ads_exercise to Python 3 </li><li>push back to repo, check the colab link checkbox</li></ul>|
 |Add html to pdf converter|<ul><li>clone template repository locally</li><li>add the .github/workflow directory (generates pdf from feedback html file on push)</li><li>change the assignment name in workflow</li></ul>|
 |Adjust README|<ul><li>change title to "Applied Data Science in Medicine & Psychology - Assignment \<XX\></li><li>remove placeholders</li></ul>|
 |Optional: Test Assignment prior release to students|After autograde testing: <ul><li>once an assignment is graded nbgrader will not allow to release it again</li><li>workaround: delete the assignment from the database<br />nbgrader db assignment remove <assignment-name> --force ([nbgrader db assignment](#nbgrader-db-assignment))</li><li>generate the assignment to add the assignment again to the database ([nbgrader generate_assignment](#nbgrader-generate_assignment))</li></ul>|
+|Add assignment link to StudOn|Make the assignment link public to students enrolled in the course|
 
 |**Students work phase**||
 |:-|:-|
-|work phase|<ul><li>give students assignment link</li><li>students accept assignment</li><li>complete work</li><li>submit by pushing to their github repository</li></ul>|
+|work phase|<ul><li>students accept assignment</li><li>complete work</li><li>submit by pushing to their github repository</li></ul>|
 
 |**Grading Feedback**||
 |:-|:-|
-|Student roster|<ul><li>check if the student roster changed compared to the last assignment</li><li>Clone student repositories</li><li>to <course_dir>/cloned_repos/</li><li>copy files to <nbgrader_dir>/submitted</li></ul>|  
-|Grading|<ul><li>run autograde</li><li>add manual grading</li><ul><li>launch jupyter lab from nbgrader_dir</li><li>open students’ notebooks from autograded folder, select manual grading</li></ul></ul>|
-|Feedback|<ul><li>Generate feedback html files and push them to students’ repositories</li></ul>|
+|Student roster|<ul><li>check if the student roster changed compared to the last assignment</li></ul>[abc-clone](#abc-clone)<ul><li>clone student repositories</li><li>to <course_dir>/cloned_repos/</li><li>copy files to <nbgrader_dir>/submitted</li></ul>|  
+|Grading|[nbgrader autograde](#nbgrader-autograde)<ul><li>run autograde</li></ul>Add manual grading<ul><li>launch jupyter lab from nbgrader_dir</li><li>open students’ notebooks from autograded folder, select manual grading</li></ul>|
+|Feedback|[nbgrader generate_feedback](#nbgrader-generate_feedback)<ul><li>generate feedback html files</li></ul>[abc-feedback](#abc-feedback)<ul><li>push html files to students’ repositories</li></ul>|
 
 |**Export grades**||
 |:-|:-|
-|Export grades|from gradebook.db|
+|Export grades|[nbgrader export](#nbgrader-export)<ul><li>from gradebook.db</ul></li>|
 
 ## abc-classroom
 ### abc-init
@@ -71,8 +71,7 @@ Use that kernel for all notebooks related to this project.
 |<course_name>|name of the course directory, e.g., course_directory|
 |-f|overwrite existing folder structure|
 
-### abc-new-template
-|**abc-new-template**||
+|<a name=abc-new-template>**abc-new-template**</a>||
 |:-|:-|
 |description|creates a git repository from a directory of course materials and pushes the repo to the GitHub organization to be used as assignment template|
 |*arguments*||
