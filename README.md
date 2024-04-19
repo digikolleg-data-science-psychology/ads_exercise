@@ -47,11 +47,11 @@ Use that kernel for all notebooks related to this project.
 |:-|:-|
 |work phase|<ul><li>students accept assignment</li><li>complete work</li><li>submit by pushing to their github repository</li></ul>|
 
-|**Grading Feedback**|                                                                                                                                                                                                                                                                  |
-|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|Student roster| <ul><li>check if the student roster changed compared to the last assignment</li></ul>[abc-clone](#abc-clone) <assignment_name> <ul><li>clone student repositories</li><li>to <course_dir>/cloned_repos/</li><li>copy files to <nbgrader_dir>/submitted</li></ul> |  
-|Grading| [nbgrader autograde](#nbgrader-autograde) <assignment_name> <ul><li>run autograde</li></ul>Add manual grading<ul><li>launch jupyter lab from nbgrader_dir</li><li>open students’ notebooks from autograded folder, select manual grading</li></ul>               |
-|Feedback| [nbgrader generate_feedback](#nbgrader-generate_feedback) <assignment_name> <ul><li>generate feedback html files</li></ul>[abc-feedback](#abc-feedback) <assignment_name> [--scrub] [--github] <ul><li>push html files to students’ repositories</li></ul>       |
+|**Grading Feedback**|                                                                                                                                                                                                                                                                                                             |
+|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|Student roster| <ul><li>check if the student roster changed compared to the last assignment</li></ul>[abc-clone](#abc-clone) <assignment_name> <ul><li>clone student repositories</li><li>to <course_dir>/cloned_repos/</li><li>copy files to <nbgrader_dir>/submitted</li></ul>                                            |  
+|Grading| [nbgrader autograde](#nbgrader-autograde) <assignment_name> <ul><li>run autograde</li></ul>Add manual grading<ul><li>launch jupyter lab from nbgrader_dir</li><li>open students’ notebooks from autograded folder, select manual grading</li></ul>                                                          |
+|Feedback| [nbgrader generate_feedback](#nbgrader-generate_feedback) <assignment_name> <ul><li>generate feedback html files</li></ul>[abc-feedback](#abc-feedback) <assignment_name> [--scrub] [--github] <ul><li>[--scrub] remove hidden tests</li><li>[--github] push html files to students’ repositories</li></ul> |
 
 |**Export grades**||
 |:-|:-|
@@ -109,6 +109,7 @@ Use commands from <course_dir>.
 
 ## nbgrader
 Use commands from <nbgrader_dir>.
+
 |**nbgrader quickstart**||
 |:-|:-|
 |description|create nbgrader directory for autograding|
