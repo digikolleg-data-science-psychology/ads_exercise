@@ -59,6 +59,7 @@ Use that kernel for all notebooks related to this project.
 
 ## abc-classroom
 Use commands from <course_dir>.
+
 |**abc-init**||
 |:-|:-|
 |description|creates a GitHub personal access token, locally stored in file .abc-classroom.tokens.html|
