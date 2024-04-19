@@ -39,7 +39,7 @@ Use that kernel for all notebooks related to this project.
 |Create GitHub Classroom assignment|<ul><li>set deadline</li><li>check the box "This is a cutoff date"</li><li>link the respective template repository</li><li>assignment name in GitHub classroom should match the one used in nbgrader_dir</li></ul>|
 |Adjust notebook in Colab|<ul><li>make any changes indicated with TODO</li><li>in ``Runtime > Change runtime type`` change Runtime type from ads_exercise to Python 3 </li><li>push back to repo, check the colab link checkbox</li></ul>|
 |Add html to pdf converter|<ul><li>clone template repository locally</li><li>add the .github/workflow directory (generates pdf from feedback html file on push)</li><li>change the assignment name in workflow</li></ul>|
-|Adjust README|<ul><li>change title to "Applied Data Science in Medicine & Psychology - Assignment \<XX\></li><li>remove placeholders</li></ul>|
+|Adjust README|<ul><li>(change title to "Applied Data Science in Medicine & Psychology - Assignment \<XX\>) not necessary</li><li>remove placeholders</li></ul>|
 |Optional: Test Assignment prior release to students|After autograde testing: <ul><li>once an assignment is graded nbgrader will not allow to release it again</li><li>workaround: delete the assignment from the database<br />nbgrader db assignment remove <assignment-name> --force ([nbgrader db assignment](#nbgrader-db-assignment))</li><li>generate the assignment to add the assignment again to the database ([nbgrader generate_assignment](#nbgrader-generate_assignment))</li></ul>|
 |Add assignment link to StudOn|Make the assignment link public to students enrolled in the course|
 
