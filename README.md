@@ -31,11 +31,11 @@ Use that kernel for all notebooks related to this project.
 |**Material development**||
 |:-|:-|
 |Develop assignment materials|<ul><li>in <nbgrader_dir>/source/<assignment_name></li><li><assignment_name> in lowercase and no special characters</li><li>notebooks in jupyter not colab</li><li>prepare the assignment using the nbgrader tools</li></ul>| 
-|Create student version|[nbgrader generate_assignment](#nbgrader-generate_assignment)<ul><li>in <nbgrader_dir>/release/<assignment_name></li><li>add any other required material to the directory</li></ul>|
+|Create student version|[nbgrader generate_assignment](#nbgrader-generate_assignment) <assignment_name> <ul><li>in <nbgrader_dir>/release/<assignment_name></li><li>add any other required material to the directory</li></ul>|
 
 |**GitHub Classroom assignment preparation**||
 |:-|:-|
-|Create template repository|[abc-new-template](#abc-new-template)<ul><li>in <course_dir>/template_repos/<assignment_name>-template</li><li>push the repository to GitHub</li></ul>Change GitHub repository settings<ul><li>repository to template repository</li><li>check if the repository visibility is set to public</li></ul>|
+|Create template repository|[abc-new-template](#abc-new-template) <assignment_name> [--github]<ul><li>in <course_dir>/template_repos/<assignment_name>-template</li><li>push the repository to GitHub</li></ul>Change GitHub repository settings<ul><li>repository to template repository</li><li>check if the repository visibility is set to public</li></ul>|
 |Create GitHub Classroom assignment|<ul><li>set deadline</li><li>check the box "This is a cutoff date"</li><li>link the respective template repository</li><li>assignment name in GitHub classroom should match the one used in nbgrader_dir</li></ul>|
 |Adjust notebook in Colab|<ul><li>make any changes indicated with TODO</li><li>in ``Runtime > Change runtime type`` change Runtime type from ads_exercise to Python 3 </li><li>push back to repo, check the colab link checkbox</li></ul>|
 |Add html to pdf converter|<ul><li>clone template repository locally</li><li>add the .github/workflow directory (generates pdf from feedback html file on push)</li><li>change the assignment name in workflow</li></ul>|
