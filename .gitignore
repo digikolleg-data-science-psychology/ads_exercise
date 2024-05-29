@@ -243,5 +243,6 @@ feedback
 submitted
 template_repos
 cloned_repos
+*.db
 
 *.yml
