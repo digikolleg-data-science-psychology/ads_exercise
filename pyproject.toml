@@ -7,12 +7,13 @@ license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.11"
+python = ">=3.9,<3.11"
 abc-classroom = "^0.1.9"
 nbgrader = "0.8.1"
 pandas = "*"
 pathlib = "*"
-pooch = "*"
+scipy = "^1.13.0"
+pooch = "^1.8.1"
 
 [tool.poetry.dev-dependencies]
 ipympl = "^0.9"
