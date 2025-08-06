@@ -1,28 +1,39 @@
-[tool.poetry]
+[project]
 name = "ads_exercise"
 version = "0.1.0"
 description = ""
-authors = ["Luca Abel <luca.abel@fau.de>", "Marie Oesten <marie.oesten@fau.de>"]
-license = "MIT"
+authors = [
+    { name = "Luca Abel", email = "luca.abel@fau.de" },
+    { name = "Marie Oesten", email = "marie.oesten@fau.de" },
+]
+requires-python = ">=3.11,<4.0"
 readme = "README.md"
+license = "MIT"
+dependencies = [
+    "abc-classroom>=0.1.9,<0.2",
+    "nbgrader==0.8.1",
+    "numpy==2.3.2",
+    "biopsykit==0.13.1",
+    "pathlib",
+    "scipy>=1.13.0,<2",
+    "pooch>=1.8.1,<2",
+]
 
-[tool.poetry.dependencies]
-python = ">=3.9,<3.11"
-abc-classroom = "^0.1.9"
-nbgrader = "0.8.1"
-pandas = "*"
-pathlib = "*"
-scipy = "^1.13.0"
-pooch = "^1.8.1"
-matplotlib = "<3.9.0"
-
-[tool.poetry.dev-dependencies]
-ipympl = "^0.9"
-poethepoet = "^0.10.0"
+[dependency-groups]
+dev = [
+    "ipympl>=0.9,<0.10",
+    "poethepoet>=0.10.0,<0.11",
+]
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+ignore-vcs = true
+include = [
+  "src/**"
+]
 
 [tool.black]
 line-length = 120
@@ -49,8 +60,6 @@ profile = "black"
 multi_line_output = 3
 line_length = 120
 skip_gitignore = true
-
-
 
 [tool.poe.tasks]
 _format_black = "black ."
